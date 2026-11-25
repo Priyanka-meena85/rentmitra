@@ -1,0 +1,217 @@
+{
+  "properties": [
+    {
+      "id": "FLAT-101",
+      "title": "Royal Palm Residency, Garden Facing",
+      "locality": "Indirapuram",
+      "fullAddress": "Flat 204, Tower B, Royal Palm, Vaibhav Khand, Indirapuram, Ghaziabad",
+      "rent": 14500,
+      "deposit": 29000,
+      "bhk": "2BHK",
+      "area": 1150,
+      "furnishing": "Full Furnished",
+      "allowed": "Family / Bachelor Both",
+      "status": "Available",
+      "vacantDays": 4,
+      "owner": "Sunil Gupta",
+      "availableFrom": "Ready to Move",
+      "badge": "Verified Owner",
+      "images": [
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80"
+      ],
+      "amenities": ["Lift", "Car Parking", "24h Water", "Power Backup", "WiFi", "Gym"]
+    },
+    {
+      "id": "FLAT-102",
+      "title": "Gaur City Luxury Flat, Near Metro",
+      "locality": "Noida Sector 62",
+      "fullAddress": "Flat 302, Gaur City Center, Sector 62, Noida (Near Metro)",
+      "rent": 12000,
+      "deposit": 24000,
+      "bhk": "1BHK",
+      "area": 720,
+      "furnishing": "Full Furnished",
+      "allowed": "Bachelors Allowed",
+      "status": "Available",
+      "vacantDays": 15,
+      "owner": "Harish Chandra",
+      "availableFrom": "Immediate",
+      "badge": "Urgent Deal",
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80"
+      ],
+      "amenities": ["Lift", "24h Water", "Gated Security", "WiFi", "Market 100m"]
+    },
+    {
+      "id": "FLAT-103",
+      "title": "ATS Pristine 3BHK Penthouse with Balcony",
+      "locality": "Noida Sector 76",
+      "fullAddress": "Tower 4, ATS Pristine, Sector 76, Central Noida",
+      "rent": 28000,
+      "deposit": 56000,
+      "bhk": "3BHK",
+      "area": 1750,
+      "furnishing": "Semi Furnished",
+      "allowed": "Family Only",
+      "status": "Rented",
+      "vacantDays": 0,
+      "owner": "Col. Rajesh Tyagi",
+      "availableFrom": "15 Dec 2026",
+      "badge": "Premium Luxury",
+      "images": [
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80"
+      ],
+      "amenities": ["Clubhouse", "Swimming Pool", "2 Reserved Parking", "Power Backup", "Gym"]
+    },
+    {
+      "id": "FLAT-104",
+      "title": "DLF Phase 5 Corporate Studio / PG",
+      "locality": "Gurgaon DLF Phase 5",
+      "fullAddress": "Studio Suite 12, Golf Course Road, DLF Phase 5, Gurgaon",
+      "rent": 9500,
+      "deposit": 19000,
+      "bhk": "PG",
+      "area": 450,
+      "furnishing": "Full Furnished",
+      "allowed": "Bachelors Allowed",
+      "status": "Available",
+      "vacantDays": 2,
+      "owner": "Vikram Malhotra",
+      "availableFrom": "Immediate",
+      "badge": "Under ₹10k Budget",
+      "images": [
+        "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=900&q=80"
+      ],
+      "amenities": ["Food Included Option", "AC", "WiFi", "Daily Cleaning", "Power Backup"]
+    },
+    {
+      "id": "FLAT-105",
+      "title": "Central Market 1st Floor Shop / Office",
+      "locality": "Indirapuram",
+      "fullAddress": "Shop No 14, Aditya Mega Mall Road, Indirapuram, Ghaziabad",
+      "rent": 18000,
+      "deposit": 36000,
+      "bhk": "Shop",
+      "area": 550,
+      "furnishing": "Unfurnished",
+      "allowed": "Commercial Use",
+      "status": "Available",
+      "vacantDays": 8,
+      "owner": "Ramesh Sharma Self",
+      "availableFrom": "Immediate",
+      "badge": "Commercial Prime",
+      "images": [
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80"
+      ],
+      "amenities": ["Main Road Facing", "High Footfall", "Water Connection", "24/7 Access"]
+    },
+    {
+      "id": "FLAT-106",
+      "title": "South Delhi Lajpat Nagar 2BHK Floor",
+      "locality": "Lajpat Nagar",
+      "fullAddress": "C-Block, Lajpat Nagar 2, Near Central Market Metro, New Delhi",
+      "rent": 22000,
+      "deposit": 44000,
+      "bhk": "2BHK",
+      "area": 980,
+      "furnishing": "Full Furnished",
+      "allowed": "Family / Girls Only",
+      "status": "Booked",
+      "vacantDays": 0,
+      "owner": "Mrs. Kamla Devi",
+      "availableFrom": "Booked by Token",
+      "badge": "Direct Metro 200m",
+      "images": [
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80"
+      ],
+      "amenities": ["Park Facing", "Metro 200m", "Modular Kitchen", "Terrace Access"]
+    }
+  ],
+  "tenants": [
+    {
+      "id": "TEN-01",
+      "name": "Rahul Verma",
+      "property": "Flat 204, Royal Palm",
+      "phone": "+91 98111 22334",
+      "rent": 14500,
+      "agreementEnd": "30 Dec 2026",
+      "score": 4.8,
+      "aadhaar": "XXXX-XXXX-9821",
+      "job": "Sr. Software Engineer @ Adobe",
+      "salary": "₹1,40,000 / mo",
+      "familyMembers": "2 Adults (Husband & Wife)"
+    },
+    {
+      "id": "TEN-02",
+      "name": "Amit Singhal",
+      "property": "Flat 302, Gaur City",
+      "phone": "+91 98712 34567",
+      "rent": 12000,
+      "agreementEnd": "15 Apr 2027",
+      "score": 4.5,
+      "aadhaar": "XXXX-XXXX-4512",
+      "job": "Marketing Lead @ Zomato",
+      "salary": "₹95,000 / mo",
+      "familyMembers": "Bachelor (Single)"
+    },
+    {
+      "id": "TEN-03",
+      "name": "Col. Rajesh Tyagi",
+      "property": "Tower 4, ATS Pristine",
+      "phone": "+91 94120 88990",
+      "rent": 28000,
+      "agreementEnd": "31 Aug 2027",
+      "score": 4.9,
+      "aadhaar": "XXXX-XXXX-1102",
+      "job": "Retired Indian Army",
+      "salary": "Pension + Consulting",
+      "familyMembers": "Family (3 Members)"
+    }
+  ],
+  "rentCollections": [
+    { "id": "RC-01", "property": "Flat 204, Royal Palm", "tenant": "Rahul Verma", "dueDate": "05 Dec 2026", "amount": 14500, "status": "Paid" },
+    { "id": "RC-02", "property": "Flat 302, Gaur City", "tenant": "Amit Singhal", "dueDate": "05 Nov 2026", "amount": 12200, "status": "Late" },
+    { "id": "RC-03", "property": "Tower 4, ATS Pristine", "tenant": "Col. Rajesh Tyagi", "dueDate": "05 Dec 2026", "amount": 28000, "status": "Paid" },
+    { "id": "RC-04", "property": "Studio 12, DLF Phase 5", "tenant": "Deepak Rawat", "dueDate": "01 Dec 2026", "amount": 9500, "status": "Pending" }
+  ],
+  "commissions": [
+    { "id": "COM-01", "date": "15 Nov 2026", "property": "Flat 204, Royal Palm", "tenant": "Rahul Verma", "rent": 14500, "commission": 14500, "status": "Received" },
+    { "id": "COM-02", "date": "20 Nov 2026", "property": "ATS Pristine 3BHK", "tenant": "Col. Rajesh Tyagi", "rent": 28000, "commission": 28000, "status": "Received" },
+    { "id": "COM-03", "date": "24 Nov 2026", "property": "Studio 12, Gurgaon", "tenant": "Deepak Rawat", "rent": 9500, "commission": 9500, "status": "Received" },
+    { "id": "COM-04", "date": "25 Nov 2026", "property": "Lajpat Nagar 2BHK", "tenant": "Mrs. Kamla Devi Deal", "rent": 22000, "commission": 8000, "status": "Pending" }
+  ],
+  "leads": [
+    { "id": "VISIT-1024", "tenant": "Amit Kumar", "phone": "9876501234", "property": "Flat 204, Royal Palm", "date": "26 Nov 2026", "time": "11:00 AM", "status": "Visit Done" },
+    { "id": "VISIT-1025", "tenant": "Pooja Hegde", "phone": "9811199887", "property": "Flat 302, Gaur City", "date": "26 Nov 2026", "time": "02:00 PM", "status": "Token Done" },
+    { "id": "VISIT-1026", "tenant": "Saurabh Mishra", "phone": "9988776655", "property": "ATS Pristine 3BHK", "date": "27 Nov 2026", "time": "05:00 PM", "status": "New" }
+  ],
+  "complaints": [
+    {
+      "id": "TKT-401",
+      "date": "24 Nov",
+      "tenant": "Rahul Verma",
+      "property": "Flat 204",
+      "issue": "Master bathroom ka nal tapak raha hai",
+      "category": "Plumbing",
+      "photo": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=200&q=80",
+      "mistri": "Raju Mistri (Plumber - 9811199000)",
+      "status": "In Progress"
+    },
+    {
+      "id": "TKT-402",
+      "date": "22 Nov",
+      "tenant": "Amit Singhal",
+      "property": "Flat 302",
+      "issue": "Balcony light socket spark kar raha hai",
+      "category": "Electricity",
+      "photo": "https://images.unsplash.com/photo-1558227691-41ea78d1f631?auto=format&fit=crop&w=200&q=80",
+      "mistri": "Sonu Wireman (Electrician)",
+      "status": "Done"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "rentwala-sharma-rentals",
+  "version": "2.0.0",
+  "description": "Full-Stack Real Estate Rental Agent Platform - Sharma Rentals",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["real-estate", "rental-agent", "full-stack", "rentwala"],
+  "author": "Sharma Rentals",
+  "license": "MIT"
+}

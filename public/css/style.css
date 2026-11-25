@@ -1,0 +1,115 @@
+/**
+ * RentWala - Sharma Rentals
+ * Unique Design System: Warm Real-Estate Palette
+ */
+
+:root {
+  --bg-cream: #FFF7ED;
+  --bg-beige: #FEF3C7;
+  --primary-terracotta: #C2410C;
+  --dark-charcoal: #1C1917;
+  --accent-olive: #4D7C0F;
+  --accent-maroon: #9F1239;
+}
+
+body {
+  background-color: #FFFBF5;
+  color: #1C1917;
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Fraunces', serif;
+}
+
+/* Signature Mughal / Mandir Arch for Hero Section */
+.arch-frame {
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  overflow: hidden;
+  position: relative;
+  border: 6px solid #FEF3C7;
+  box-shadow: 0 35px 70px -15px rgba(194, 65, 12, 0.28);
+}
+
+/* Glass pill navbar */
+.glass-pill {
+  background: rgba(255, 251, 245, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(254, 243, 199, 0.9);
+}
+
+/* Blinking notification dot */
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+}
+.blink-red {
+  animation: pulse-dot 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Floating WhatsApp button pulse */
+@keyframes pulse-whatsapp {
+  0% { box-shadow: 0 0 0 0 rgba(77, 124, 15, 0.7); }
+  70% { box-shadow: 0 0 0 18px rgba(77, 124, 15, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(77, 124, 15, 0); }
+}
+.pulse-wa {
+  animation: pulse-whatsapp 2.2s infinite;
+}
+
+/* Hide scrollbars for pill lists */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Circular Score Progress Ring */
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.5s ease-in-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* Table styling with alternating warm cream rows */
+.table-cream-row:nth-child(even) {
+  background-color: #FEF3C740;
+}
+.table-cream-row:hover {
+  background-color: #FED7AA35;
+}
+
+/* Indian Legal Stamp Paper Aesthetic */
+.stamp-paper {
+  background: #FFFDF9;
+  border: 2px solid #D97706;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.stamp-header {
+  background: linear-gradient(135deg, #78350F 0%, #D97706 50%, #78350F 100%);
+  color: #FEF3C7;
+}
+
+/* Custom print styling */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printArea, #printArea * {
+    visibility: visible;
+  }
+  #printArea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
