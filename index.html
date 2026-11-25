@@ -1016,7 +1016,7 @@
             <span>1. Kya RentMitraa par flat visit karne ke koi charges hain?</span>
             <i class="fa-solid fa-chevron-down text-xs text-stone-400 transition-transform duration-200 faq-icon"></i>
           </button>
-          <div class="faq-content hidden px-4 sm:px-5 pb-4 sm:pb-5 text-xs text-stone-600 leading-relaxed border-t border-amber-100 pt-3">
+          <div class="faq-content px-4 sm:px-5 pb-4 sm:pb-5 text-xs text-stone-600 leading-relaxed border-t border-amber-100 pt-3">
             Bilkul nahi! Site visit bilkul 100% Free hai. Aap apni pasand ke time slot (11:00 AM, 02:00 PM, ya 05:00 PM) par aakar aaram se flat physically check kar sakte hain.
           </div>
         </div>
@@ -1027,7 +1027,7 @@
             <span>2. ₹2,000 Token Payment karne par flat doosre ko toh nahi dikhega?</span>
             <i class="fa-solid fa-chevron-down text-xs text-stone-400 transition-transform duration-200 faq-icon"></i>
           </button>
-          <div class="faq-content hidden px-4 sm:px-5 pb-4 sm:pb-5 text-xs text-stone-600 leading-relaxed border-t border-amber-100 pt-3">
+          <div class="faq-content px-4 sm:px-5 pb-4 sm:pb-5 text-xs text-stone-600 leading-relaxed border-t border-amber-100 pt-3">
             Jaise hi aap UPI se ₹2,000 token pay karte hain, property ka status turant 'BOOKED' ho jata hai aur wo doosre kisi bhi tenant ke liye lock ho jati hai. Sath hi aapko official PDF receipt mil jati hai.
           </div>
         </div>
@@ -1038,7 +1038,7 @@
             <span>3. Digital Legal Agreement banne me kitna samay lagta hai?</span>
             <i class="fa-solid fa-chevron-down text-xs text-stone-400 transition-transform duration-200 faq-icon"></i>
           </button>
-          <div class="faq-content hidden px-4 sm:px-5 pb-4 sm:pb-5 text-xs text-stone-600 leading-relaxed border-t border-amber-100 pt-3">
+          <div class="faq-content px-4 sm:px-5 pb-4 sm:pb-5 text-xs text-stone-600 leading-relaxed border-t border-amber-100 pt-3">
             Token lene ke baad 24 ghante ke andar 11-month registered stamp paper agreement draft ho jata hai. Owner aur Tenant ke digital signature ke sath PDF aapke portal par download ke liye uplabdh hoti hai.
           </div>
         </div>
@@ -1049,7 +1049,7 @@
             <span>4. Kya bachelors ya pets allowed hote hain?</span>
             <i class="fa-solid fa-chevron-down text-xs text-stone-400 transition-transform duration-200 faq-icon"></i>
           </button>
-          <div class="faq-content hidden px-4 sm:px-5 pb-4 sm:pb-5 text-xs text-stone-600 leading-relaxed border-t border-amber-100 pt-3">
+          <div class="faq-content px-4 sm:px-5 pb-4 sm:pb-5 text-xs text-stone-600 leading-relaxed border-t border-amber-100 pt-3">
             Hamare har property card par saaf badge laga hota hai — 'Family Only', 'Bachelors Allowed', ya 'Girls Only'. Aap filter sidebar se sirf bachelors ya pet-friendly flats chunte hain.
           </div>
         </div>
@@ -1060,7 +1060,7 @@
             <span>5. Shift hone ke baad nal ya bijli kharab ho jaye toh kya karein?</span>
             <i class="fa-solid fa-chevron-down text-xs text-stone-400 transition-transform duration-200 faq-icon"></i>
           </button>
-          <div class="faq-content hidden px-4 sm:px-5 pb-4 sm:pb-5 text-xs text-stone-600 leading-relaxed border-t border-amber-100 pt-3">
+          <div class="faq-content px-4 sm:px-5 pb-4 sm:pb-5 text-xs text-stone-600 leading-relaxed border-t border-amber-100 pt-3">
             Aap Tenant Portal me jakar 'Maintenance Complaint' tab me photo ke sath request daal sakte hain. Sharma Ji 24 ghante ke andar in-house verified plumber ya electrician assign karte hain.
           </div>
         </div>
@@ -4078,6 +4078,23 @@
       const waMsg = encodeURIComponent(`Namaste Sharma Ji, mujhe "${prop.title}" (Rent: ₹${prop.rent}) ke bare me enquiry karni hai.`);
       document.getElementById('drawerWhatsAppEnquiry').href = `https://wa.me/919876543210?text=${waMsg}`;
 
+      // Populate Locality Score
+      if (prop.localityScore) {
+        const w = document.getElementById('drawerWaterSupply');
+        const p = document.getElementById('drawerPowerBackup');
+        const s = document.getElementById('drawerNightSafety');
+        const m = document.getElementById('drawerMetroWalk');
+        const d = document.getElementById('drawerDeliverySpeed');
+        if (w) w.innerText = prop.localityScore.water;
+        if (p) p.innerText = prop.localityScore.power;
+        if (s) s.innerText = prop.localityScore.nightSafety;
+        if (m) m.innerText = prop.localityScore.metroWalk;
+        if (d) d.innerText = prop.localityScore.deliverySpeed;
+      }
+      if (typeof updateAffordabilityCalculator === 'function') {
+        updateAffordabilityCalculator();
+      }
+
       // Open drawer animation
       const drawer = document.getElementById('propertyDrawer');
       const panel = document.getElementById('drawerPanel');
@@ -4226,18 +4243,24 @@
     function viewOfficialReceipt(id, title, amount, property) {
       const modal = document.getElementById('officialReceiptModal');
       const card = document.getElementById('officialReceiptCard');
+      if (!modal || !card) return;
+
+      const safeTitle = title || "Monthly Rent Payment";
+      const safeAmount = (typeof amount === 'number') ? amount : (parseInt(amount, 10) || 14000);
+      const safeProp = property || "RentMitraa Managed Property";
+
       card.innerHTML = `
         <div class="flex justify-between border-b border-amber-300 pb-2">
-          <span class="font-serif font-black text-charcoal-900 text-sm tracking-wider">SHARMA RENTALS</span>
-          <span class="text-terracotta-700 font-bold">${id}</span>
+          <span class="font-serif font-black text-charcoal-900 text-sm tracking-wider">RENTMITRAA</span>
+          <span class="text-terracotta-700 font-bold">${id || 'RCP-1101'}</span>
         </div>
-        <p><b>Description:</b> ${title}</p>
-        <p><b>Property:</b> ${property}</p>
-        <p><b>Amount:</b> ₹${amount.toLocaleString('en-IN')} (Paid)</p>
+        <p><b>Description:</b> ${safeTitle}</p>
+        <p><b>Property:</b> ${safeProp}</p>
+        <p><b>Amount:</b> Rs. ${safeAmount.toLocaleString('en-IN')} (Paid)</p>
         <p><b>Date:</b> ${new Date().toLocaleDateString('en-IN')}</p>
         <p><b>Payment Status:</b> Confirmed & Settled</p>
         <p class="text-[10px] text-stone-500 pt-2 border-t border-amber-200">
-          Official GST & RERA verified receipt issued by Sharma Rentals NCR.
+          Official GST & RERA verified receipt issued by RentMitraa NCR.
         </p>
       `;
       modal.classList.remove('hidden');
@@ -4268,8 +4291,8 @@
       const days = parseInt(range.value) || 15;
       display.innerText = `${days} Din`;
 
-      const selectedOpt = propSel.options[propSel.selectedIndex];
-      const rent = selectedOpt ? parseInt(selectedOpt.getAttribute('data-rent')) || 12000 : 12000;
+      const selectedOpt = (propSel.options && propSel.selectedIndex >= 0) ? propSel.options[propSel.selectedIndex] : null;
+      const rent = (selectedOpt && typeof selectedOpt.getAttribute === 'function') ? (parseInt(selectedOpt.getAttribute('data-rent')) || 12000) : 12000;
       const daily = Math.round(rent / 30);
       const totalLoss = daily * days;
 
@@ -4992,8 +5015,9 @@
 
     function initSignatureCanvas() {
       const canvas = document.getElementById('sigCanvas');
-      if (!canvas) return;
+      if (!canvas || !canvas.getContext) return;
       const ctx = canvas.getContext('2d');
+      if (!ctx) return;
       let isDrawing = false;
 
       ctx.strokeStyle = '#1C1917';
@@ -5170,6 +5194,570 @@
         setTimeout(() => toast.remove(), 300);
       }, 3500);
     }
+
+    
+    // ================= SUPER FEATURE 1: PROPERTY COMPARISON TOOL =================
+    let selectedCompareList = [];
+
+    function isPropertyInCompare(propId) {
+      return selectedCompareList.includes(propId);
+    }
+
+    function toggleCompareProperty(propId, event) {
+      if (event) event.stopPropagation();
+      const index = selectedCompareList.indexOf(propId);
+      if (index > -1) {
+        selectedCompareList.splice(index, 1);
+        showToast("Property comparison se hata di gayi", "info");
+      } else {
+        if (selectedCompareList.length >= 3) {
+          showToast("Aap ek saath maximum 3 properties compare kar sakte hain", "warning");
+          return;
+        }
+        selectedCompareList.push(propId);
+        showToast("Property comparison me add ho gayi!", "success");
+      }
+      renderCompareBar();
+      renderPublicPropertyList();
+    }
+
+    function renderCompareBar() {
+      const bar = document.getElementById('floatingCompareBar');
+      const countEl = document.getElementById('compareCount');
+      if (!bar || !countEl) return;
+
+      if (selectedCompareList.length > 0) {
+        bar.classList.remove('hidden');
+        countEl.innerText = selectedCompareList.length;
+      } else {
+        bar.classList.add('hidden');
+      }
+    }
+
+    function clearCompareList() {
+      selectedCompareList = [];
+      renderCompareBar();
+      renderPublicPropertyList();
+      showToast("Comparison list clear kar di gayi", "info");
+    }
+
+    function openCompareModal() {
+      if (selectedCompareList.length === 0) {
+        showToast("Pehle kam se kam 1 property select karein", "info");
+        return;
+      }
+      const modal = document.getElementById('comparePropertiesModal');
+      const body = document.getElementById('compareModalBody');
+      if (!modal || !body) return;
+
+      const comparedProps = properties.filter(p => selectedCompareList.includes(p.id));
+
+      body.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-${comparedProps.length} gap-4">
+          ${comparedProps.map(p => `
+            <div class="bg-white rounded-2xl p-4 border border-amber-200 shadow-sm space-y-3">
+              <div class="relative rounded-xl overflow-hidden aspect-[16/10] bg-stone-200">
+                <img src="${p.images[0]}" alt="${p.title}" class="w-full h-full object-cover" />
+                <span class="absolute top-2 left-2 bg-charcoal-900/90 text-amber-300 font-serif font-bold text-xs px-2.5 py-1 rounded-full">
+                  Rs. ${p.rent.toLocaleString('en-IN')} / mo
+                </span>
+                <span class="absolute bottom-2 left-2 bg-cream-100 text-charcoal-900 font-bold text-[10px] px-2 py-0.5 rounded-full border border-amber-300">
+                  Deposit: Rs. ${p.deposit.toLocaleString('en-IN')}
+                </span>
+              </div>
+
+              <div>
+                <span class="text-[10px] font-bold text-olive-800 bg-olive-100 px-2 py-0.5 rounded-full">${p.badge || 'Verified'}</span>
+                <h4 class="font-serif font-bold text-sm text-charcoal-900 mt-1">${p.title}</h4>
+                <p class="text-xs text-stone-500">${p.fullAddress}</p>
+              </div>
+
+              <!-- Key Specs Table -->
+              <div class="space-y-1.5 text-xs border-t border-amber-100 pt-2">
+                <div class="flex justify-between py-1 border-b border-stone-100">
+                  <span class="text-stone-500">Configuration:</span>
+                  <span class="font-bold text-charcoal-900">${p.bhk} - ${p.area} sqft</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-stone-100">
+                  <span class="text-stone-500">Furnishing:</span>
+                  <span class="font-semibold text-charcoal-900">${p.furnishing}</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-stone-100">
+                  <span class="text-stone-500">Water Supply:</span>
+                  <span class="font-semibold text-sky-800">${p.localityScore ? p.localityScore.water : '24h Water'}</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-stone-100">
+                  <span class="text-stone-500">Power Backup:</span>
+                  <span class="font-semibold text-amber-800">${p.localityScore ? p.localityScore.power : 'Zero Power Cut'}</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-stone-100">
+                  <span class="text-stone-500">Metro Station:</span>
+                  <span class="font-semibold text-emerald-800">${p.localityScore ? p.localityScore.metroWalk : 'Near Metro'}</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-stone-100">
+                  <span class="text-stone-500">Safety Score:</span>
+                  <span class="font-bold text-violet-800">${p.localityScore ? p.localityScore.nightSafety : '9.4/10'}</span>
+                </div>
+                <div class="flex justify-between py-1">
+                  <span class="text-stone-500">Grocery Delivery:</span>
+                  <span class="font-semibold text-terracotta-700">${p.localityScore ? p.localityScore.deliverySpeed : '8 mins'}</span>
+                </div>
+              </div>
+
+              <!-- Direct CTA Buttons -->
+              <div class="pt-2 flex flex-col gap-2">
+                <button onclick="closeCompareModal(); openBookVisitModal('${p.id}');" class="w-full py-2 rounded-full bg-olive-700 hover:bg-olive-800 text-white font-bold text-xs transition-colors shadow-sm">
+                  Book Site Visit
+                </button>
+                <button onclick="closeCompareModal(); openTokenPaymentModal('${p.id}');" class="w-full py-2 rounded-full bg-charcoal-900 hover:bg-terracotta-700 text-amber-300 font-bold text-xs transition-colors">
+                  Lock Rs. 2,000 Token
+                </button>
+              </div>
+
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeCompareModal() {
+      const modal = document.getElementById('comparePropertiesModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // ================= SUPER FEATURE 2: INTERACTIVE LEAFLET MAP VIEW =================
+    let leafletMapInstance = null;
+    let leafletMarkersGroup = null;
+
+    function switchListingView(viewMode) {
+      const listEl = document.getElementById('propertyCardsList');
+      const mapWrapper = document.getElementById('propertyMapWrapper');
+      const btnList = document.getElementById('viewToggleList');
+      const btnMap = document.getElementById('viewToggleMap');
+
+      if (!listEl || !mapWrapper) return;
+
+      if (viewMode === 'map') {
+        listEl.classList.add('hidden');
+        mapWrapper.classList.remove('hidden');
+
+        if (btnMap && btnList) {
+          btnMap.classList.add('bg-terracotta-700', 'text-white', 'shadow-sm');
+          btnMap.classList.remove('text-stone-700');
+          btnList.classList.remove('bg-terracotta-700', 'text-white', 'shadow-sm');
+          btnList.classList.add('text-stone-700');
+        }
+
+        initLeafletMap();
+      } else {
+        listEl.classList.remove('hidden');
+        mapWrapper.classList.add('hidden');
+
+        if (btnList && btnMap) {
+          btnList.classList.add('bg-terracotta-700', 'text-white', 'shadow-sm');
+          btnList.classList.remove('text-stone-700');
+          btnMap.classList.remove('bg-terracotta-700', 'text-white', 'shadow-sm');
+          btnMap.classList.add('text-stone-700');
+        }
+      }
+    }
+
+    function initLeafletMap() {
+      if (typeof L === 'undefined') return;
+
+      const mapContainer = document.getElementById('propertyLeafletMap');
+      if (!mapContainer) return;
+
+      if (!leafletMapInstance) {
+        leafletMapInstance = L.map('propertyLeafletMap').setView([28.585, 77.34], 12);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; OpenStreetMap contributors - RentMitraa'
+        }).addTo(leafletMapInstance);
+
+        leafletMarkersGroup = L.layerGroup().addTo(leafletMapInstance);
+      }
+
+      setTimeout(() => {
+        if (leafletMapInstance) leafletMapInstance.invalidateSize();
+      }, 200);
+
+      renderMapPins();
+    }
+
+    function renderMapPins() {
+      if (!leafletMarkersGroup || typeof L === 'undefined') return;
+      leafletMarkersGroup.clearLayers();
+
+      const listToRender = (typeof getFilteredProperties === 'function') ? getFilteredProperties() : properties;
+
+      listToRender.forEach(prop => {
+        if (!prop.coords || prop.coords.length !== 2) return;
+
+        const pinHtml = `
+          <div class="leaflet-price-pin" onclick="openPropertyDrawer('${prop.id}')">
+            <i class="fa-solid fa-house-chimney text-[10px]"></i>
+            <span>Rs. ${(prop.rent / 1000).toFixed(1)}k</span>
+          </div>
+        `;
+
+        const customIcon = L.divIcon({
+          html: pinHtml,
+          className: 'custom-leaflet-div-icon',
+          iconSize: [85, 30],
+          iconAnchor: [42, 15]
+        });
+
+        const marker = L.marker(prop.coords, { icon: customIcon }).addTo(leafletMarkersGroup);
+
+        const popupContent = `
+          <div style="width: 220px;" class="space-y-2">
+            <img src="${prop.images[0]}" style="width: 100%; height: 110px; object-fit: cover; border-radius: 12px;" />
+            <h5 class="font-serif font-bold text-xs text-charcoal-900">${prop.title}</h5>
+            <p class="text-[11px] text-stone-500">${prop.locality} - ${prop.bhk}</p>
+            <div class="flex items-center justify-between pt-1">
+              <span class="font-serif font-extrabold text-terracotta-700 text-sm">Rs. ${prop.rent.toLocaleString('en-IN')}/mo</span>
+              <button onclick="openPropertyDrawer('${prop.id}')" class="px-2.5 py-1 rounded-full bg-charcoal-900 text-white font-bold text-[10px]">Details</button>
+            </div>
+          </div>
+        `;
+
+        marker.bindPopup(popupContent);
+      });
+    }
+
+    // ================= SUPER FEATURE 3: AFFORDABILITY CALCULATOR =================
+    function updateAffordabilityCalculator() {
+      if (!currentSelectedProperty) return;
+
+      const slider = document.getElementById('salarySlider');
+      const display = document.getElementById('salaryDisplay');
+      const ratioText = document.getElementById('rentVsSalaryText');
+      const badge = document.getElementById('affordabilityBadge');
+      const bar = document.getElementById('affordabilityBar');
+      const advice = document.getElementById('savingsAdvice');
+      const depositEmi = document.getElementById('depositEmiText');
+
+      if (!slider) return;
+
+      const salary = parseInt(slider.value, 10);
+      if (display) display.innerText = "Rs. " + salary.toLocaleString('en-IN') + " / mahina";
+
+      const rent = currentSelectedProperty.rent;
+      const ratio = Math.round((rent / salary) * 100);
+
+      if (ratioText) ratioText.innerHTML = `Rent aapki salary ka <b>${ratio}%</b> hai (Recommended: &lt; 30%).`;
+      if (bar) bar.style.width = Math.min(ratio, 100) + "%";
+
+      if (badge && bar && advice) {
+        if (ratio <= 28) {
+          badge.innerText = "100% Affordable";
+          badge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-olive-100 text-olive-800 border border-olive-300";
+          bar.className = "h-full bg-olive-600 transition-all duration-300";
+          advice.innerText = "Perfect Budget Match";
+          advice.className = "text-olive-700 font-bold";
+        } else if (ratio <= 40) {
+          badge.innerText = "Moderate Budget";
+          badge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300";
+          bar.className = "h-full bg-amber-500 transition-all duration-300";
+          advice.innerText = "Manageable with Savings";
+          advice.className = "text-amber-700 font-bold";
+        } else {
+          badge.innerText = "High Budget Alert";
+          badge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold bg-maroon-100 text-maroon-900 border border-maroon-300";
+          bar.className = "h-full bg-maroon-600 transition-all duration-300";
+          advice.innerText = "Consider Room Sharing or 1BHK";
+          advice.className = "text-maroon-700 font-bold";
+        }
+      }
+
+      if (depositEmi) {
+        const emiPerMonth = Math.round(currentSelectedProperty.deposit / 3);
+        depositEmi.innerHTML = `Deposit Rs. ${currentSelectedProperty.deposit.toLocaleString('en-IN')} ko 3 aasan kishton me dein: <b>Rs. ${emiPerMonth.toLocaleString('en-IN')} / mahina</b>`;
+      }
+    }
+
+    // ================= SUPER FEATURE 4: POLICE VERIFICATION AUTO-PDF =================
+    const POLICE_DATA = {
+      "UP": {
+        badge: "UTTAR PRADESH POLICE DEPARTMENT",
+        thana: "Indirapuram Thana, Ghaziabad",
+        title: "TENANT / SERVANT VERIFICATION FORM"
+      },
+      "DELHI": {
+        badge: "DELHI POLICE - CITIZEN SAFETY PORTAL",
+        thana: "Lajpat Nagar Police Station, New Delhi",
+        title: "DELHI POLICE TENANT VERIFICATION REGISTRATION"
+      },
+      "HARYANA": {
+        badge: "HARYANA POLICE - GURUGRAM COMMISSIONERATE",
+        thana: "DLF Phase 1 Police Station, Gurugram",
+        title: "GURUGRAM POLICE TENANT SCRUTINY RECORD"
+      }
+    };
+
+    function populatePoliceDropdowns() {
+      const select = document.getElementById('policeTenantSelect');
+      if (!select || !tenants || !tenants.length) return;
+      select.innerHTML = tenants.map(t => `
+        <option value="${t.id}">${t.name} (${t.property})</option>
+      `).join('');
+      populatePoliceForm();
+    }
+
+    function switchPoliceJurisdiction() {
+      const stateSelect = document.getElementById('policeStateSelect');
+      if (!stateSelect) return;
+      const state = stateSelect.value;
+      const pData = POLICE_DATA[state] || POLICE_DATA["UP"];
+
+      const badgeEl = document.getElementById('policeHeaderBadge');
+      const thanaEl = document.getElementById('policeThanaName');
+      const inputEl = document.getElementById('policeStationInput');
+
+      if (badgeEl) badgeEl.innerText = pData.badge;
+      if (thanaEl) thanaEl.innerText = pData.thana;
+      if (inputEl) inputEl.value = pData.thana;
+    }
+
+    function populatePoliceForm() {
+      const select = document.getElementById('policeTenantSelect');
+      if (!select || !tenants || !tenants.length) return;
+      const tenantId = select.value;
+      const tenant = tenants.find(t => t.id === tenantId) || tenants[0];
+
+      if (tenant) {
+        const nameEl = document.getElementById('policeTenantName');
+        const contactEl = document.getElementById('policeContactId');
+        const occEl = document.getElementById('policeOccupation');
+        const addrEl = document.getElementById('policeRentedAddress');
+
+        if (nameEl) nameEl.innerText = tenant.name;
+        if (contactEl) contactEl.innerText = `${tenant.phone} - Aadhaar: ${tenant.aadhaar || 'XXXX-XXXX-4821'}`;
+        if (occEl) occEl.innerText = `${tenant.job || 'Corporate Executive'} (${tenant.salary ? 'Salary: ' + tenant.salary : 'Income Verified'})`;
+        if (addrEl) addrEl.innerText = `${tenant.property} - Rent: Rs. ${tenant.rent.toLocaleString('en-IN')} / month`;
+      }
+    }
+
+    function printOfficialPoliceForm() {
+      window.print();
+    }
+
+    // ================= SUPER FEATURE 5: OWNER PAYOUT & RENT SPLIT LEDGER =================
+    const DEFAULT_OWNER_PAYOUTS = [
+      { id: "PAY-101", property: "Flat 204, Royal Palm", owner: "Sunil Gupta", grossRent: 14500, maintenance: 1500, agentCut: 1000, netPayout: 12000, bankUpi: "sunil.gupta@okhdfcbank", status: "Paid" },
+      { id: "PAY-102", property: "Flat 302, Gaur City", owner: "Harish Chandra", grossRent: 12000, maintenance: 1200, agentCut: 1000, netPayout: 9800, bankUpi: "harish.chandra@sbi", status: "Pending" },
+      { id: "PAY-103", property: "Tower 4, ATS Pristine", owner: "Col. Rajesh Tyagi", grossRent: 28000, maintenance: 3500, agentCut: 2000, netPayout: 22500, bankUpi: "rajesh.tyagi@icici", status: "Paid" },
+      { id: "PAY-104", property: "Studio 12, DLF Phase 5", owner: "Vikram Malhotra", grossRent: 9500, maintenance: 800, agentCut: 700, netPayout: 8000, bankUpi: "vikram.m@paytm", status: "Pending" }
+    ];
+
+    let ownerPayouts = [];
+
+    function renderOwnerPayoutTable() {
+      const tbody = document.getElementById('adminOwnerPayoutTableBody');
+      if (!tbody) return;
+
+      if (!ownerPayouts.length) {
+        ownerPayouts = JSON.parse(localStorage.getItem('rentwala_ownerPayouts')) || DEFAULT_OWNER_PAYOUTS;
+      }
+
+      tbody.innerHTML = ownerPayouts.map(p => {
+        const isPaid = p.status === 'Paid';
+        return `
+          <tr class="table-cream-row border-b border-amber-100">
+            <td class="p-4">
+              <span class="font-bold text-charcoal-900 block">${p.property}</span>
+              <span class="text-[11px] text-stone-500">Owner: ${p.owner}</span>
+            </td>
+            <td class="p-4 font-serif font-bold text-stone-800">Rs. ${p.grossRent.toLocaleString('en-IN')}</td>
+            <td class="p-4 text-stone-600 font-serif">-Rs. ${p.maintenance.toLocaleString('en-IN')}</td>
+            <td class="p-4 text-terracotta-700 font-serif">-Rs. ${p.agentCut.toLocaleString('en-IN')}</td>
+            <td class="p-4">
+              <span class="font-serif font-extrabold text-emerald-800 text-sm">Rs. ${p.netPayout.toLocaleString('en-IN')}</span>
+            </td>
+            <td class="p-4 font-mono text-[11px] text-stone-600">${p.bankUpi}</td>
+            <td class="p-4">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold ${isPaid ? 'bg-olive-100 text-olive-800 border border-olive-300' : 'bg-amber-100 text-amber-900 border border-amber-300'}">
+                ${p.status}
+              </span>
+            </td>
+            <td class="p-4 text-right space-x-1.5">
+              ${!isPaid ? `
+                <button onclick="transferOwnerPayout('${p.id}')" class="px-3 py-1.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-[11px] shadow-sm">
+                  Pay UPI
+                </button>
+              ` : `
+                <button onclick="sendOwnerReceiptWhatsApp('${p.owner}', '${p.property}', ${p.netPayout})" class="px-3 py-1.5 rounded-full bg-olive-700 hover:bg-olive-800 text-white font-bold text-[11px] shadow-sm">
+                  <i class="fa-brands fa-whatsapp"></i> Receipt
+                </button>
+              `}
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function transferOwnerPayout(payoutId) {
+      const item = ownerPayouts.find(p => p.id === payoutId);
+      if (item) {
+        item.status = "Paid";
+        localStorage.setItem('rentwala_ownerPayouts', JSON.stringify(ownerPayouts));
+        renderOwnerPayoutTable();
+        showToast(`Rs. ${item.netPayout.toLocaleString('en-IN')} transferred to ${item.owner} via UPI!`, "success");
+      }
+    }
+
+    function sendOwnerReceiptWhatsApp(ownerName, property, amount) {
+      const msg = encodeURIComponent(`Pranam ${ownerName} Ji, RentMitraa dwara aapke flat "${property}" ka is mahine ka net rent payout Rs. ${amount.toLocaleString('en-IN')} successfully transfer kar diya gaya hai. Receipt attach hai.`);
+      window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+    }
+
+    // ================= SUPER FEATURE 6: 11-MONTH RENEWAL & 10% HIKE REMINDERS =================
+    function sendHikeNotice(tenantName, property, curRent, newRent) {
+      const msg = encodeURIComponent(`Namaste ${tenantName} Ji, aapka 11-month agreement for ${property} jald expire ho raha hai. Standard renewal clause ke anusaar agle 11 mahine ke liye revised rent Rs. ${newRent.toLocaleString('en-IN')} hoga (10% standard escalation). Kripya agreement renew karwayen - RentMitraa.`);
+      window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      showToast(`${tenantName} ko WhatsApp 10% hike notice bhej diya!`, "success");
+    }
+
+    function renewAgreementWithHike(tenantName, property, newRent) {
+      showToast(`${tenantName} ka agreement Rs. ${newRent.toLocaleString('en-IN')} par renew ho gaya!`, "success");
+    }
+
+    // ================= SUPER FEATURE 7: FAQ TOGGLE & KEYWORD CLEAR =================
+    function toggleFaq(btn) {
+      if (!btn) return;
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon') || btn.querySelector('i');
+      if (!content) return;
+
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        if (icon) icon.classList.remove('rotate-180');
+      }
+    }
+
+    function clearHeroKeyword() {
+      const input = document.getElementById('heroSearchInput');
+      if (input) {
+        input.value = '';
+        if (typeof applyHeroSearch === 'function') {
+          applyHeroSearch();
+        }
+      }
+    }
+
+    // ================= SUPER FEATURE 8: WISHLIST MANAGEMENT =================
+    let userWishlist = JSON.parse(localStorage.getItem('rentwala_wishlist') || '[]');
+
+    function isPropertyInWishlist(propId) {
+      return userWishlist.includes(propId);
+    }
+
+    function toggleWishlist(propId, event) {
+      if (event) event.stopPropagation();
+      const idx = userWishlist.indexOf(propId);
+      if (idx > -1) {
+        userWishlist.splice(idx, 1);
+        showToast("Property wishlist se hata di gayi", "info");
+      } else {
+        userWishlist.push(propId);
+        showToast("Property wishlist me add ho gayi!", "success");
+      }
+      localStorage.setItem('rentwala_wishlist', JSON.stringify(userWishlist));
+      updateWishlistUI();
+      renderPublicPropertyList();
+    }
+
+    function updateWishlistUI() {
+      const countBadge = document.getElementById('wishlistCountBadge');
+      if (countBadge) {
+        countBadge.innerText = userWishlist.length;
+        countBadge.style.display = userWishlist.length > 0 ? 'inline-flex' : 'none';
+      }
+    }
+
+    function openWishlistModal() {
+      const modal = document.getElementById('wishlistModal');
+      const listEl = document.getElementById('wishlistModalList');
+      if (!modal || !listEl) return;
+      const wishProps = properties.filter(p => userWishlist.includes(p.id));
+      if (wishProps.length === 0) {
+        listEl.innerHTML = `
+          <div class="text-center py-10 space-y-3">
+            <div class="w-16 h-16 mx-auto rounded-full bg-amber-50 flex items-center justify-center text-terracotta-700 text-2xl border border-amber-200">
+              <i class="fa-regular fa-heart"></i>
+            </div>
+            <p class="font-serif font-bold text-stone-700">Aapki wishlist abhi khali hai</p>
+            <p class="text-xs text-stone-500">Properties ke heart icon par click karke unhe save karein.</p>
+          </div>
+        `;
+      } else {
+        listEl.innerHTML = wishProps.map(p => `
+          <div class="flex items-center gap-3 p-3 bg-white rounded-xl border border-amber-100 hover:border-amber-300 transition-all shadow-xs">
+            <img src="${p.images[0]}" alt="${p.title}" class="w-16 h-16 rounded-lg object-cover" />
+            <div class="flex-1 min-w-0">
+              <h4 class="font-bold text-sm text-charcoal-900 truncate">${p.title}</h4>
+              <p class="text-xs text-stone-500">${p.locality} - Rs. ${p.rent.toLocaleString('en-IN')}/mo</p>
+              <span class="text-[10px] text-olive-800 font-bold bg-olive-100 px-2 py-0.5 rounded-full">${p.bhk}</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button onclick="closeWishlistModal(); openPropertyDrawer('${p.id}');" class="px-3 py-1.5 rounded-full bg-charcoal-900 text-white font-bold text-xs hover:bg-terracotta-700 transition-colors">
+                View
+              </button>
+              <button onclick="toggleWishlist('${p.id}', event)" class="p-2 text-stone-400 hover:text-red-500 transition-colors">
+                <i class="fa-solid fa-trash-can text-sm"></i>
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+      modal.classList.remove('hidden');
+    }
+
+    function closeWishlistModal() {
+      const modal = document.getElementById('wishlistModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // ================= SUPER FEATURE 9: ALIASES & HELPERS =================
+    function printOfficialAgreement() {
+      if (typeof printOrSaveAgreement === 'function') {
+        printOrSaveAgreement();
+      } else {
+        window.print();
+      }
+    }
+
+    function generateReceipt(receiptId) {
+      if (typeof viewOfficialReceipt === 'function') {
+        const rc = (typeof rentCollections !== 'undefined') ? rentCollections.find(r => r.id === receiptId || (r.property && r.property.includes('204'))) : null;
+        if (rc) {
+          viewOfficialReceipt(receiptId, 'Monthly Rent Payment', rc.amount || 14000, rc.property);
+        } else {
+          viewOfficialReceipt(receiptId, 'Monthly Rent Payment', 14000, 'Flat 204, Royal Palm Apartments');
+        }
+      } else {
+        showToast("Receipt ID: " + receiptId, "info");
+      }
+    }
+
+    // ================= SUPER FEATURE 10: PWA SERVICE WORKER =================
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(reg => {
+          console.log('RentMitraa PWA Service Worker Registered!', reg);
+        }).catch(err => {
+          console.log('PWA SW Registration bypassed', err);
+        });
+      });
+    }
+
 
     // Bulletproof initialization on DOM ready or immediate if already interactive
     if (document.readyState === 'loading') {
