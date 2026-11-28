@@ -282,24 +282,24 @@
 <body class="bg-[#FFFBF5] text-charcoal-900 antialiased selection:bg-terracotta-200 selection:text-terracotta-900">
 
   <!-- ==================== TOP FLOATING PILL NAVBAR ==================== -->
-  <header class="fixed top-3 sm:top-4 left-0 right-0 z-40 px-3 sm:px-6 pointer-events-auto">
-    <nav class="max-w-7xl mx-auto bg-[#FFFDF9]/95 backdrop-blur-xl rounded-full px-4 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between shadow-[0_10px_30px_-5px_rgba(28,25,23,0.08),0_2px_8px_rgba(0,0,0,0.03)] pointer-events-auto border border-amber-200/90 transition-all duration-300">
+  <header class="fixed top-3 sm:top-4 left-0 right-0 z-40 px-2.5 sm:px-6 pointer-events-auto">
+    <nav class="max-w-7xl mx-auto bg-[#FFFDF9]/95 backdrop-blur-xl rounded-full px-3 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between gap-2 shadow-[0_10px_30px_-5px_rgba(28,25,23,0.08),0_2px_8px_rgba(0,0,0,0.03)] pointer-events-auto border border-amber-200/90 transition-all duration-300">
       
       <!-- Brand Logo & Identity (Clean Organic Logo Display) -->
-      <a href="javascript:void(0)" onclick="navTo('home')" class="flex items-center gap-2.5 sm:gap-3 group cursor-pointer flex-shrink-0" title="RentMitraa Home">
-        <div class="h-10 sm:h-11 w-auto flex-shrink-0 flex items-center justify-center transition-transform group-hover:scale-105 duration-200">
-          <img src="/logo.png" alt="RentMitraa Logo" class="h-9 sm:h-10 w-auto object-contain filter drop-shadow-xs" />
+      <a href="javascript:void(0)" onclick="navTo('home')" class="flex items-center gap-2 sm:gap-3 group cursor-pointer flex-shrink-0 min-w-0" title="RentMitraa Home">
+        <div class="h-8 sm:h-11 w-auto flex-shrink-0 flex items-center justify-center transition-transform group-hover:scale-105 duration-200">
+          <img src="/logo.png" alt="RentMitraa Logo" class="h-7 sm:h-10 w-auto object-contain filter drop-shadow-xs" />
         </div>
         <div class="flex-shrink-0">
           <div class="flex items-center gap-1.5">
-            <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-charcoal-900 leading-none whitespace-nowrap">
+            <span class="font-serif text-base sm:text-2xl font-bold tracking-tight text-charcoal-900 leading-none whitespace-nowrap">
               Rent<span class="text-terracotta-700">Mitraa</span>
             </span>
-            <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-olive-100 text-olive-800 border border-olive-500/30 whitespace-nowrap">
+            <span class="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-olive-100 text-olive-800 border border-olive-500/30 whitespace-nowrap">
               <i class="fa-solid fa-circle-check text-[9px] mr-1 text-olive-700"></i>Verified
             </span>
           </div>
-          <p class="text-[9px] sm:text-[10px] font-bold text-stone-500 tracking-wider uppercase mt-0.5 whitespace-nowrap">Sharma Rentals</p>
+          <p class="text-[8px] sm:text-[10px] font-bold text-stone-500 tracking-wider uppercase mt-0.5 whitespace-nowrap">Sharma Rentals</p>
         </div>
       </a>
 
@@ -324,28 +324,28 @@
       </div>
 
       <!-- Right CTAs (Phone Call Button, Agent Portal Toggle Button, Mobile Menu) -->
-      <div class="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+      <div class="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
         
-                <!-- Wishlist Saved Flats Button -->
-        <button onclick="openWishlistModal()" class="w-10 h-10 rounded-full bg-cream-200/70 hover:bg-cream-300/80 text-terracotta-700 hover:text-terracotta-800 border border-amber-300 flex items-center justify-center relative shadow-xs transition-all hover:scale-105 active:scale-95 flex-shrink-0" title="Saved Wishlist Flats">
+        <!-- Wishlist Saved Flats Button -->
+        <button onclick="openWishlistModal()" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-cream-200/70 hover:bg-cream-300/80 text-terracotta-700 hover:text-terracotta-800 border border-amber-300 flex items-center justify-center relative shadow-xs transition-all hover:scale-105 active:scale-95 flex-shrink-0" title="Saved Wishlist Flats" aria-label="Saved Wishlist Flats">
           <i class="fa-solid fa-heart text-xs"></i>
           <span id="wishlistCountBadge" class="hidden absolute -top-1 -right-1 w-4 h-4 bg-terracotta-700 text-white rounded-full text-[9px] font-bold flex items-center justify-center">0</span>
         </button>
 
         <!-- Phone Direct Call Button (Icon Only Circle) -->
-        <a href="tel:+919876543210" class="w-10 h-10 rounded-full bg-cream-200/70 hover:bg-cream-300/80 text-terracotta-700 hover:text-terracotta-800 border border-amber-300 flex items-center justify-center shadow-xs transition-all hover:scale-105 active:scale-95 flex-shrink-0" title="Call Sharma Ji: 98765 43210" aria-label="Call Sharma Ji">
+        <a href="tel:+919876543210" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-cream-200/70 hover:bg-cream-300/80 text-terracotta-700 hover:text-terracotta-800 border border-amber-300 flex items-center justify-center shadow-xs transition-all hover:scale-105 active:scale-95 flex-shrink-0" title="Call Sharma Ji: 98765 43210" aria-label="Call Sharma Ji">
           <i class="fa-solid fa-phone text-xs"></i>
         </a>
 
         <!-- Agent Portal Toggle Button (Luxury Charcoal Pill) -->
-        <button id="agentPortalToggleBtn" onclick="toggleAgentPortal()" class="pill-btn px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold bg-charcoal-900 hover:bg-terracotta-700 text-white shadow-pill flex items-center gap-2 transition-all hover:scale-105 active:scale-95 whitespace-nowrap flex-shrink-0">
-          <i class="fa-solid fa-key text-amber-300 text-xs"></i>
+        <button id="agentPortalToggleBtn" onclick="toggleAgentPortal()" class="pill-btn px-2.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold bg-charcoal-900 hover:bg-terracotta-700 text-white shadow-pill flex items-center gap-1.5 sm:gap-2 transition-all hover:scale-105 active:scale-95 whitespace-nowrap flex-shrink-0">
+          <i class="fa-solid fa-key text-amber-300 text-[10px] sm:text-xs"></i>
           <span id="agentBtnText" class="whitespace-nowrap"><span class="hidden sm:inline">Agent Portal (Sharma Ji)</span><span class="sm:hidden">Agent</span></span>
         </button>
 
         <!-- Mobile Hamburger Menu Button -->
-        <button onclick="toggleMobileNav()" class="lg:hidden w-10 h-10 rounded-full bg-cream-200/70 text-charcoal-900 flex items-center justify-center hover:bg-cream-300 transition-colors border border-amber-300 shadow-xs flex-shrink-0" aria-label="Toggle Menu">
-          <i class="fa-solid fa-bars text-sm"></i>
+        <button onclick="toggleMobileNav()" class="lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-cream-200/70 text-charcoal-900 flex items-center justify-center hover:bg-cream-300 transition-colors border border-amber-300 shadow-xs flex-shrink-0" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars text-xs sm:text-sm"></i>
         </button>
       </div>
     </nav>
@@ -380,22 +380,22 @@
 
   
   <!-- ==================== FLOATING PROPERTY COMPARE BAR ==================== -->
-  <div id="floatingCompareBar" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-40 max-w-xl w-[92%] glass-pill bg-[#FFFBF5]/95 backdrop-blur-md rounded-full px-4 sm:px-6 py-3 border-2 border-terracotta-700 shadow-2xl flex items-center justify-between gap-3 compare-bar-enter">
-    <div class="flex items-center gap-3">
-      <div class="w-9 h-9 rounded-full bg-terracotta-700 text-white flex items-center justify-center font-bold text-xs shadow-md">
+  <div id="floatingCompareBar" class="hidden fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-40 max-w-xl w-[94%] glass-pill bg-[#FFFBF5]/95 backdrop-blur-md rounded-full px-3 sm:px-6 py-2.5 sm:py-3 border-2 border-terracotta-700 shadow-2xl flex items-center justify-between gap-2 sm:gap-3 compare-bar-enter">
+    <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+      <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-terracotta-700 text-white flex items-center justify-center font-bold text-xs shadow-md flex-shrink-0">
         <i class="fa-solid fa-code-compare"></i>
       </div>
-      <div>
-        <p class="text-xs font-bold text-charcoal-900"><span id="compareCount">2</span> Properties Selected</p>
-        <p class="text-[10px] text-stone-500">Side-by-side rent, deposit aur scorecard dekhein</p>
+      <div class="min-w-0">
+        <p class="text-[11px] sm:text-xs font-bold text-charcoal-900 truncate"><span id="compareCount">2</span> Selected</p>
+        <p class="hidden sm:block text-[10px] text-stone-500">Side-by-side rent, deposit aur scorecard dekhein</p>
       </div>
     </div>
-    <div class="flex items-center gap-2">
-      <button onclick="clearCompareList()" class="px-3 py-1.5 rounded-full text-xs font-bold text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors">
+    <div class="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+      <button onclick="clearCompareList()" class="px-2.5 sm:px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-bold text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors">
         Clear
       </button>
-      <button onclick="openCompareModal()" class="px-4 py-2 rounded-full bg-terracotta-700 hover:bg-terracotta-800 text-white text-xs font-bold shadow-pill flex items-center gap-1.5 transition-transform hover:scale-105">
-        <span>Compare Now</span>
+      <button onclick="openCompareModal()" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-terracotta-700 hover:bg-terracotta-800 text-white text-[11px] sm:text-xs font-bold shadow-pill flex items-center gap-1.5 transition-transform hover:scale-105 whitespace-nowrap">
+        <span>Compare</span>
         <i class="fa-solid fa-arrow-right text-[10px]"></i>
       </button>
     </div>
@@ -470,26 +470,26 @@
   </div>
 
   <!-- ==================== NOTIFICATION TOAST ==================== -->
-  <div id="toastContainer" class="fixed top-20 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+  <div id="toastContainer" class="fixed top-20 right-3 sm:right-6 left-3 sm:left-auto z-50 flex flex-col items-end gap-2 pointer-events-none"></div>
 
   <!-- ==================== MAIN PUBLIC VIEW ==================== -->
-  <main id="publicView" class="transition-opacity duration-300 pt-24 pb-20">
+  <main id="publicView" class="transition-opacity duration-300 pt-20 sm:pt-24 pb-20 overflow-x-clip">
 
     <!-- HERO SECTION: SPLIT LAYOUT + MANDIR/MUGHAL ARCH -->
-    <section id="home" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 lg:pt-12 lg:pb-24">
+    <section id="home" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-14 lg:pt-12 lg:pb-24 overflow-x-clip">
       
       <!-- Subtle Decorative Background Elements -->
-      <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-amber-200/40 via-terracotta-100/20 to-transparent blur-3xl -z-10 pointer-events-none rounded-full"></div>
+      <div class="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-[700px] h-[350px] bg-gradient-to-b from-amber-200/40 via-terracotta-100/20 to-transparent blur-3xl -z-10 pointer-events-none rounded-full"></div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
         
         <!-- Left Side: Big Serif Heading + Subtext + Search Card -->
-        <div class="lg:col-span-7 flex flex-col justify-center space-y-6">
+        <div class="lg:col-span-7 flex flex-col justify-center space-y-5 sm:space-y-6">
           
           <!-- Trust Pill Badge -->
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cream-200 border border-amber-300/60 text-terracotta-800 text-xs font-semibold w-max shadow-sm">
-            <i class="fa-solid fa-award text-amber-600"></i>
-            <span>Delhi-NCR Ka Sabse Bharosemand Rental Agent • 50+ Verified Flats</span>
+          <div class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-cream-200 border border-amber-300/60 text-terracotta-800 text-[11px] sm:text-xs font-semibold w-fit max-w-full shadow-sm">
+            <i class="fa-solid fa-award text-amber-600 flex-shrink-0"></i>
+            <span class="truncate sm:whitespace-normal">Delhi-NCR Ka Sabse Bharosemand Rental Agent • 50+ Verified Flats</span>
           </div>
 
           <!-- Hero Heading (Fraunces Serif) -->
@@ -626,33 +626,33 @@
             </div>
 
             <!-- FLOATING MINI CARD 1: Top Left Overlapping Arch ("Flat 302 - ₹12,000") -->
-            <div class="absolute -top-4 -left-4 sm:-left-8 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 border border-amber-200 shadow-warm-card flex items-center gap-3.5 z-20 transform hover:-translate-y-1 transition-all">
-              <div class="w-11 h-11 rounded-xl bg-olive-50 border border-olive-200 flex items-center justify-center text-olive-700">
-                <i class="fa-solid fa-key text-lg"></i>
+            <div class="absolute -top-3 left-1 sm:-top-4 sm:-left-6 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3.5 border border-amber-200 shadow-warm-card flex items-center gap-2.5 sm:gap-3.5 z-20 transform hover:-translate-y-1 transition-all max-w-[210px] sm:max-w-none">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-olive-50 border border-olive-200 flex items-center justify-center text-olive-700 flex-shrink-0">
+                <i class="fa-solid fa-key text-sm sm:text-lg"></i>
               </div>
-              <div>
+              <div class="min-w-0">
                 <div class="flex items-center gap-1.5">
-                  <span class="text-xs font-bold text-charcoal-900 font-serif">Flat 302</span>
-                  <span class="text-[10px] font-semibold text-olive-700 bg-olive-100 px-1.5 py-0.2 rounded-full">Available</span>
+                  <span class="text-[11px] sm:text-xs font-bold text-charcoal-900 font-serif">Flat 302</span>
+                  <span class="text-[9px] sm:text-[10px] font-semibold text-olive-700 bg-olive-100 px-1.5 py-0.2 rounded-full">Available</span>
                 </div>
-                <p class="text-sm font-extrabold text-terracotta-700 font-serif">₹12,000 <span class="text-[10px] font-normal text-stone-500">/ Mahina</span></p>
-                <p class="text-[10px] text-stone-500 font-medium">Ready To Move • Indirapuram</p>
+                <p class="text-xs sm:text-sm font-extrabold text-terracotta-700 font-serif">₹12,000 <span class="text-[9px] sm:text-[10px] font-normal text-stone-500">/ Mahina</span></p>
+                <p class="text-[9px] sm:text-[10px] text-stone-500 font-medium truncate">Ready To Move • Indirapuram</p>
               </div>
             </div>
 
             <!-- FLOATING MINI CARD 2: Bottom Right Overlapping Arch ("Vacant Loss ₹6,000") -->
-            <div class="absolute -bottom-6 -right-4 sm:-right-8 bg-maroon-50/95 backdrop-blur-md rounded-2xl p-3.5 border-2 border-maroon-700 shadow-warm-card flex items-center gap-3.5 z-20 transform hover:-translate-y-1 transition-all">
-              <div class="relative w-11 h-11 rounded-xl bg-maroon-100 flex items-center justify-center text-maroon-800">
-                <i class="fa-solid fa-triangle-exclamation text-lg"></i>
-                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-maroon-700 blink-red border-2 border-white"></span>
+            <div class="absolute -bottom-4 right-1 sm:-bottom-6 sm:-right-6 bg-maroon-50/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3.5 border-2 border-maroon-700 shadow-warm-card flex items-center gap-2.5 sm:gap-3.5 z-20 transform hover:-translate-y-1 transition-all max-w-[230px] sm:max-w-none">
+              <div class="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-maroon-100 flex items-center justify-center text-maroon-800 flex-shrink-0">
+                <i class="fa-solid fa-triangle-exclamation text-sm sm:text-lg"></i>
+                <span class="absolute -top-1 -right-1 w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-maroon-700 blink-red border-2 border-white"></span>
               </div>
-              <div>
+              <div class="min-w-0">
                 <div class="flex items-center gap-1.5">
-                  <span class="text-xs font-bold text-maroon-900">Vacant Loss Alert</span>
-                  <span class="text-[9px] font-bold uppercase tracking-wider text-maroon-700 bg-maroon-200 px-1.5 py-0.2 rounded-full">15 Din Khali</span>
+                  <span class="text-[11px] sm:text-xs font-bold text-maroon-900">Vacant Alert</span>
+                  <span class="text-[9px] font-bold uppercase tracking-wider text-maroon-700 bg-maroon-200 px-1.5 py-0.2 rounded-full">15 Din</span>
                 </div>
-                <p class="text-sm font-extrabold text-maroon-800 font-serif">₹6,000 <span class="text-[10px] font-normal text-maroon-900">Nuksaan Hogaya</span></p>
-                <p class="text-[10px] text-stone-600 font-medium">Flat 302 • Urgent Tenant Needed</p>
+                <p class="text-xs sm:text-sm font-extrabold text-maroon-800 font-serif">₹6,000 <span class="text-[9px] sm:text-[10px] font-normal text-maroon-900">Nuksaan</span></p>
+                <p class="text-[9px] sm:text-[10px] text-stone-600 font-medium truncate">Flat 302 • Urgent Tenant</p>
               </div>
             </div>
 
@@ -789,16 +789,25 @@
           <p class="text-sm text-stone-500">Live listings updated directly by Sharma Ji</p>
         </div>
 
-        <!-- Filter Sidebar Trigger + Sort Select Pill -->
+        <!-- Filter Sidebar Trigger + View Toggle + Sort Select Pill -->
         <div class="flex items-center gap-2 self-start md:self-auto flex-wrap">
-          <button onclick="openFilterSidebar()" class="px-4 py-2 rounded-full text-xs font-bold bg-amber-100 hover:bg-amber-200 text-charcoal-900 border border-amber-300 flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95">
+          <button onclick="openFilterSidebar()" class="px-3.5 sm:px-4 py-2 rounded-full text-xs font-bold bg-amber-100 hover:bg-amber-200 text-charcoal-900 border border-amber-300 flex items-center gap-1.5 shadow-sm transition-all hover:scale-105 active:scale-95">
             <i class="fa-solid fa-sliders text-terracotta-700"></i>
-            <span>Filter Sidebar (52 Rules)</span>
+            <span>Filters</span>
           </button>
+
+          <div class="flex items-center bg-cream-100 border border-amber-200 rounded-full p-0.5 shadow-sm">
+            <button id="viewToggleList" onclick="switchListingView('list')" class="px-3 py-1.5 rounded-full text-xs font-bold bg-terracotta-700 text-white shadow-sm transition-all flex items-center gap-1">
+              <i class="fa-solid fa-list text-[11px]"></i> <span class="hidden sm:inline">List</span>
+            </button>
+            <button id="viewToggleMap" onclick="switchListingView('map')" class="px-3 py-1.5 rounded-full text-xs font-bold text-stone-700 hover:text-terracotta-700 transition-all flex items-center gap-1">
+              <i class="fa-solid fa-map-location-dot text-[11px]"></i> <span class="hidden sm:inline">Map</span>
+            </button>
+          </div>
 
           <div class="flex items-center gap-1.5 bg-white border border-amber-200 rounded-full px-3 py-1 shadow-sm">
             <span class="text-xs font-semibold text-stone-500 whitespace-nowrap"><i class="fa-solid fa-arrow-down-short-wide mr-1 text-terracotta-700"></i>Sort:</span>
-            <select id="propertySortSelect" onchange="handleSortChange()" class="bg-transparent text-xs font-bold text-charcoal-900 py-1 focus:outline-none cursor-pointer">
+            <select id="propertySortSelect" onchange="handleSortChange()" class="bg-transparent text-xs font-bold text-charcoal-900 py-1 focus:outline-none cursor-pointer max-w-[140px] sm:max-w-none">
               <option value="featured">Sharma Ji Ki Choice</option>
               <option value="price-asc">Rent: Kam Se Jyada (Low to High)</option>
               <option value="price-desc">Rent: Jyada Se Kam (High to Low)</option>
@@ -847,6 +856,11 @@
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
       <div id="propertyCardsList" class="flex flex-col gap-6">
         <!-- Javascript dynamically injects horizontal cards here -->
+      </div>
+
+      <!-- Interactive Leaflet Map Wrapper -->
+      <div id="propertyMapWrapper" class="hidden rounded-3xl overflow-hidden border border-amber-200 shadow-warm-card bg-white p-2 sm:p-3">
+        <div id="propertyLeafletMap" class="w-full h-[360px] sm:h-[480px] rounded-2xl z-10"></div>
       </div>
 
       <!-- No Results Placeholder -->
@@ -1993,7 +2007,7 @@
                 <button type="button" onclick="clearSignatureCanvas()" class="text-[10px] text-terracotta-700 font-bold hover:underline">Clear Sign</button>
               </div>
               <div class="border-2 border-dashed border-amber-300 rounded-xl bg-white p-1">
-                <canvas id="sigCanvas" width="360" height="90" class="w-full h-20 cursor-crosshair"></canvas>
+                <canvas id="sigCanvas" width="360" height="90" class="w-full h-24 cursor-crosshair touch-none"></canvas>
               </div>
               <p class="text-[10px] text-stone-500 mt-1">Upar mouse ya finger se digital sign karein</p>
             </div>
@@ -2068,12 +2082,12 @@
     <div id="maintenanceTab" class="admin-tab-content hidden">
       <div class="bg-white rounded-3xl border border-amber-200/80 shadow-warm-card overflow-hidden">
         
-        <div class="p-6 border-b border-amber-100 flex items-center justify-between">
+        <div class="p-4 sm:p-6 border-b border-amber-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h3 class="font-serif text-xl font-bold text-charcoal-900">Maintenance & Complaint Manager</h3>
+            <h3 class="font-serif text-lg sm:text-xl font-bold text-charcoal-900">Maintenance & Complaint Manager</h3>
             <p class="text-xs text-stone-500">Tenant ki complaints ("Nal kharab hai", "AC leakage") + Plumber/Electrician assignment</p>
           </div>
-          <button onclick="openNewComplaintModal()" class="px-3.5 py-1.5 rounded-full bg-charcoal-900 text-white text-xs font-bold hover:bg-terracotta-700 transition-colors">
+          <button onclick="openNewComplaintModal()" class="px-3.5 py-2 rounded-full bg-charcoal-900 text-white text-xs font-bold hover:bg-terracotta-700 transition-colors self-start sm:self-auto whitespace-nowrap">
             + Nayi Complaint Add Karein
           </button>
         </div>
@@ -2097,6 +2111,92 @@
           </table>
         </div>
 
+      </div>
+    </div>
+
+    <!-- ================= TAB 8: POLICE VERIFICATION AUTO-PDF ================= -->
+    <div id="policeVerificationTab" class="admin-tab-content hidden">
+      <div class="bg-white rounded-3xl border border-amber-200/80 shadow-warm-card p-4 sm:p-6 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-amber-100">
+          <div>
+            <h3 class="font-serif text-lg sm:text-xl font-bold text-charcoal-900">Police Verification Form (Auto-Fill)</h3>
+            <p class="text-xs text-stone-500">UP Police / Delhi Police / Haryana Police tenant verification ready-to-print form</p>
+          </div>
+          <button onclick="printOfficialPoliceForm()" class="px-4 py-2 rounded-full bg-terracotta-700 hover:bg-terracotta-800 text-white text-xs font-bold flex items-center gap-2 self-start sm:self-auto">
+            <i class="fa-solid fa-print"></i> Print / Save PDF
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+          <div>
+            <label class="block font-bold text-stone-600 mb-1">Select Tenant</label>
+            <select id="policeTenantSelect" onchange="populatePoliceForm()" class="w-full p-2.5 rounded-xl border border-amber-300 bg-cream-50 font-semibold"></select>
+          </div>
+          <div>
+            <label class="block font-bold text-stone-600 mb-1">Jurisdiction / State</label>
+            <select id="policeStateSelect" onchange="switchPoliceJurisdiction()" class="w-full p-2.5 rounded-xl border border-amber-300 bg-cream-50 font-semibold">
+              <option value="UP">Uttar Pradesh (Ghaziabad / Noida)</option>
+              <option value="DELHI">Delhi Police</option>
+              <option value="HARYANA">Haryana Police (Gurugram)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-stone-600 mb-1">Local Thana / Station</label>
+            <input id="policeStationInput" type="text" value="Indirapuram Thana, Ghaziabad" class="w-full p-2.5 rounded-xl border border-amber-300 bg-white font-semibold" />
+          </div>
+        </div>
+
+        <div class="police-stamp-paper rounded-2xl p-4 sm:p-6 space-y-4 text-xs">
+          <div class="text-center border-b border-amber-300 pb-3">
+            <p id="policeHeaderBadge" class="font-serif font-extrabold text-sm sm:text-base text-amber-900 tracking-wider">UTTAR PRADESH POLICE DEPARTMENT</p>
+            <p id="policeThanaName" class="text-xs font-bold text-stone-600 mt-0.5">Indirapuram Thana, Ghaziabad</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="p-3 bg-white rounded-xl border border-amber-200">
+              <span class="text-[10px] uppercase font-bold text-stone-500 block">Tenant Name</span>
+              <span id="policeTenantName" class="font-bold text-charcoal-900">Rahul Verma</span>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-amber-200">
+              <span class="text-[10px] uppercase font-bold text-stone-500 block">Contact & Aadhaar</span>
+              <span id="policeContactId" class="font-bold text-charcoal-900">+91 98111 22334</span>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-amber-200">
+              <span class="text-[10px] uppercase font-bold text-stone-500 block">Occupation & Income</span>
+              <span id="policeOccupation" class="font-bold text-charcoal-900">Corporate Executive</span>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-amber-200">
+              <span class="text-[10px] uppercase font-bold text-stone-500 block">Rented Property</span>
+              <span id="policeRentedAddress" class="font-bold text-charcoal-900">Flat 204, Royal Palm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TAB 9: OWNER PAYOUT LEDGER ================= -->
+    <div id="ownerPayoutTab" class="admin-tab-content hidden">
+      <div class="bg-white rounded-3xl border border-amber-200/80 shadow-warm-card overflow-hidden">
+        <div class="p-4 sm:p-6 border-b border-amber-100">
+          <h3 class="font-serif text-lg sm:text-xl font-bold text-charcoal-900">Owner Payout & Rent Split Ledger</h3>
+          <p class="text-xs text-stone-500">Gross Rent, Society Maintenance, Agent Fee aur Net Owner UPI Payout ka hisaab</p>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-cream-200/80 text-charcoal-900 text-xs uppercase font-serif tracking-wider border-b border-amber-200">
+                <th class="p-4">Property & Owner</th>
+                <th class="p-4">Gross Rent</th>
+                <th class="p-4">Maintenance</th>
+                <th class="p-4">Agent Cut</th>
+                <th class="p-4">Net Payout</th>
+                <th class="p-4">UPI ID</th>
+                <th class="p-4">Status</th>
+                <th class="p-4 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="adminOwnerPayoutTableBody" class="text-xs font-medium divide-y divide-amber-100"></tbody>
+          </table>
+        </div>
       </div>
     </div>
 
@@ -2192,6 +2292,60 @@
               <span class="font-bold text-olive-700">Zero Hidden Charges • Flat Sharma Fee</span>
             </div>
           </div>
+        </div>
+
+        <!-- Delhi-NCR Locality Scorecard -->
+        <div class="bg-cream-50 rounded-2xl p-4 border border-amber-200 space-y-2.5">
+          <h4 class="font-serif text-sm font-bold text-charcoal-900 flex items-center gap-1.5">
+            <i class="fa-solid fa-shield-halved text-olive-700"></i> Delhi-NCR Locality Scorecard
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <div class="p-2.5 rounded-xl bg-white border border-amber-100 flex justify-between gap-2">
+              <span class="text-stone-500">Water Supply:</span>
+              <span id="drawerWaterSupply" class="font-bold text-charcoal-900 text-right">24h Ganga Jal</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white border border-amber-100 flex justify-between gap-2">
+              <span class="text-stone-500">Power Backup:</span>
+              <span id="drawerPowerBackup" class="font-bold text-charcoal-900 text-right">100% DG Backup</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white border border-amber-100 flex justify-between gap-2">
+              <span class="text-stone-500">Night Safety:</span>
+              <span id="drawerNightSafety" class="font-bold text-olive-700 text-right">9.4 / 10 Gated</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white border border-amber-100 flex justify-between gap-2">
+              <span class="text-stone-500">Metro Walk:</span>
+              <span id="drawerMetroWalk" class="font-bold text-charcoal-900 text-right">6 min walk</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white border border-amber-100 flex justify-between gap-2 sm:col-span-2">
+              <span class="text-stone-500">Quick Delivery:</span>
+              <span id="drawerDeliverySpeed" class="font-bold text-terracotta-700 text-right">8 mins (Blinkit / Zepto)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Salary & Affordability Calculator -->
+        <div class="bg-white rounded-2xl p-4 border border-amber-200 shadow-xs space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h4 class="font-serif text-sm font-bold text-charcoal-900 flex items-center gap-1.5">
+              <i class="fa-solid fa-calculator text-terracotta-700"></i> Salary Affordability Check
+            </h4>
+            <span id="affordabilityBadge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-olive-100 text-olive-800 border border-olive-300">100% Affordable</span>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-stone-600 font-medium">Aapki Monthly Salary:</span>
+              <span id="salaryDisplay" class="font-bold text-charcoal-900">Rs. 55,000 / mahina</span>
+            </div>
+            <input id="salarySlider" type="range" min="15000" max="250000" step="5000" value="55000" oninput="updateAffordabilityCalculator()" class="w-full accent-terracotta-700 cursor-pointer" />
+          </div>
+          <div class="w-full h-2.5 bg-cream-200 rounded-full overflow-hidden">
+            <div id="affordabilityBar" class="h-full bg-olive-600 transition-all duration-300" style="width: 26%"></div>
+          </div>
+          <div class="flex flex-wrap justify-between gap-1 text-[11px]">
+            <span id="rentVsSalaryText" class="text-stone-600">Rent aapki salary ka <b>26%</b> hai.</span>
+            <span id="savingsAdvice" class="text-olive-700 font-bold">Perfect Budget Match</span>
+          </div>
+          <p id="depositEmiText" class="text-[11px] text-stone-500 bg-cream-50 p-2 rounded-xl border border-amber-100"></p>
         </div>
 
         <!-- Amenities Grid -->
@@ -2300,9 +2454,9 @@
 
 
   <!-- ==================== MODAL 1: BOOK SITE VISIT ==================== -->
-  <div id="bookVisitModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+  <div id="bookVisitModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-4">
     <div onclick="closeBookVisitModal()" class="fixed inset-0 bg-charcoal-950/60 backdrop-blur-sm"></div>
-    <div class="relative bg-white rounded-3xl max-w-md w-full p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in">
+    <div class="relative bg-white rounded-3xl max-w-md w-full p-5 sm:p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in max-h-[90vh] overflow-y-auto">
       
       <div class="flex items-center justify-between mb-4">
         <div>
@@ -2385,9 +2539,9 @@
 
 
   <!-- ==================== MODAL 2: TOKEN PAYMENT ₹2,000 ==================== -->
-  <div id="tokenPaymentModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+  <div id="tokenPaymentModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-4">
     <div onclick="closeTokenModal()" class="fixed inset-0 bg-charcoal-950/60 backdrop-blur-sm"></div>
-    <div class="relative bg-white rounded-3xl max-w-md w-full p-6 border border-amber-200 shadow-2xl z-10">
+    <div class="relative bg-white rounded-3xl max-w-md w-full p-5 sm:p-6 border border-amber-200 shadow-2xl z-10 max-h-[90vh] overflow-y-auto">
       
       <div class="flex items-center justify-between mb-4">
         <div>
@@ -2823,9 +2977,9 @@
   </aside>
 
   <!-- ==================== MODAL 5: TENANT PROFILE MODAL ==================== -->
-  <div id="tenantProfileModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+  <div id="tenantProfileModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-4">
     <div onclick="closeTenantProfileModal()" class="fixed inset-0 bg-charcoal-950/60 backdrop-blur-sm"></div>
-    <div class="relative bg-white rounded-3xl max-w-md w-full p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in">
+    <div class="relative bg-white rounded-3xl max-w-md w-full p-5 sm:p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between mb-4 pb-2 border-b border-amber-100">
         <h3 class="font-serif text-lg font-bold text-charcoal-900">Tenant Profile & Score Card</h3>
         <button onclick="closeTenantProfileModal()" class="w-8 h-8 rounded-full bg-cream-100 hover:bg-stone-200 flex items-center justify-center text-stone-600">
@@ -2842,9 +2996,9 @@
   </div>
 
   <!-- ==================== MODAL 6: ADD NEW TENANT MODAL ==================== -->
-  <div id="addTenantModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+  <div id="addTenantModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-4">
     <div onclick="closeAddTenantModal()" class="fixed inset-0 bg-charcoal-950/60 backdrop-blur-sm"></div>
-    <div class="relative bg-white rounded-3xl max-w-md w-full p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in">
+    <div class="relative bg-white rounded-3xl max-w-md w-full p-5 sm:p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between mb-4 pb-2 border-b border-amber-100">
         <h3 class="font-serif text-lg font-bold text-charcoal-900">Naya Tenant Jodein</h3>
         <button onclick="closeAddTenantModal()" class="w-8 h-8 rounded-full bg-cream-100 hover:bg-stone-200 flex items-center justify-center text-stone-600">
@@ -3006,9 +3160,9 @@
   </div>
 
   <!-- ==================== MODAL 9: VIDEO TOUR MODAL ==================== -->
-  <div id="videoTourModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+  <div id="videoTourModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-4">
     <div onclick="closeVideoTourModal()" class="fixed inset-0 bg-charcoal-950/80 backdrop-blur-md"></div>
-    <div class="relative bg-charcoal-900 text-white rounded-3xl max-w-2xl w-full p-6 border border-amber-400/40 shadow-2xl z-10 animate-fade-in">
+    <div class="relative bg-charcoal-900 text-white rounded-3xl max-w-2xl w-full p-5 sm:p-6 border border-amber-400/40 shadow-2xl z-10 animate-fade-in max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between mb-4 pb-2 border-b border-stone-700">
         <div class="flex items-center gap-2">
           <span class="w-3 h-3 rounded-full bg-red-600 animate-ping"></span>
@@ -3039,9 +3193,9 @@
   </div>
 
   <!-- ==================== MODAL 10: RESCHEDULE VISIT MODAL ==================== -->
-  <div id="rescheduleVisitModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+  <div id="rescheduleVisitModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-4">
     <div onclick="closeRescheduleModal()" class="fixed inset-0 bg-charcoal-950/60 backdrop-blur-sm"></div>
-    <div class="relative bg-white rounded-3xl max-w-sm w-full p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in text-xs">
+    <div class="relative bg-white rounded-3xl max-w-sm w-full p-5 sm:p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in text-xs max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between mb-4 pb-2 border-b border-amber-100">
         <h3 class="font-serif text-lg font-bold text-charcoal-900">Reschedule Site Visit</h3>
         <button onclick="closeRescheduleModal()" class="w-8 h-8 rounded-full bg-cream-100 hover:bg-stone-200 flex items-center justify-center text-stone-600">
@@ -3069,9 +3223,9 @@
   </div>
 
   <!-- ==================== MODAL 11: CANCEL VISIT MODAL ==================== -->
-  <div id="cancelVisitModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+  <div id="cancelVisitModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-4">
     <div onclick="closeCancelModal()" class="fixed inset-0 bg-charcoal-950/60 backdrop-blur-sm"></div>
-    <div class="relative bg-white rounded-3xl max-w-sm w-full p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in text-xs">
+    <div class="relative bg-white rounded-3xl max-w-sm w-full p-5 sm:p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in text-xs max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between mb-4 pb-2 border-b border-amber-100">
         <h3 class="font-serif text-lg font-bold text-maroon-900">Cancel Site Visit</h3>
         <button onclick="closeCancelModal()" class="w-8 h-8 rounded-full bg-cream-100 hover:bg-stone-200 flex items-center justify-center text-stone-600">
@@ -3097,9 +3251,9 @@
   </div>
 
   <!-- ==================== MODAL 12: OFFICIAL RECEIPT MODAL ==================== -->
-  <div id="officialReceiptModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+  <div id="officialReceiptModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-4">
     <div onclick="closeOfficialReceiptModal()" class="fixed inset-0 bg-charcoal-950/60 backdrop-blur-sm"></div>
-    <div class="relative bg-white rounded-3xl max-w-md w-full p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in">
+    <div class="relative bg-white rounded-3xl max-w-md w-full p-5 sm:p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between mb-4 pb-2 border-b border-amber-100">
         <h3 class="font-serif text-lg font-bold text-charcoal-900">Official Payment Receipt</h3>
         <button onclick="closeOfficialReceiptModal()" class="w-8 h-8 rounded-full bg-cream-100 hover:bg-stone-200 flex items-center justify-center text-stone-600">
@@ -3165,9 +3319,9 @@
 
 
   <!-- ==================== MODAL 14: ASSIGN MISTRI (MAINTENANCE) ==================== -->
-  <div id="assignMistriModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+  <div id="assignMistriModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-3 sm:p-4">
     <div onclick="closeAssignMistriModal()" class="fixed inset-0 bg-charcoal-950/60 backdrop-blur-sm"></div>
-    <div class="relative bg-white rounded-3xl max-w-sm w-full p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in text-xs">
+    <div class="relative bg-white rounded-3xl max-w-sm w-full p-5 sm:p-6 border border-amber-200 shadow-2xl z-10 animate-fade-in text-xs max-h-[90vh] overflow-y-auto">
       <div class="flex items-center justify-between mb-4 pb-2 border-b border-amber-100">
         <div>
           <h3 class="font-serif text-lg font-bold text-charcoal-900">Assign Mistri</h3>
@@ -3502,25 +3656,44 @@
               statusText.innerText = "Node.js Server LIVE";
             }
 
-            const [propsRes, tenRes, leadsRes, maintRes] = await Promise.all([
+            const [propsRes, tenRes, leadsRes, maintRes, rentRes, commRes] = await Promise.all([
               fetch('/api/properties'),
               fetch('/api/tenants'),
               fetch('/api/leads'),
-              fetch('/api/maintenance')
+              fetch('/api/maintenance'),
+              fetch('/api/rent'),
+              fetch('/api/commissions')
             ]);
 
-            if (propsRes.ok) properties = await propsRes.json();
+            if (propsRes.ok) {
+              const serverProps = await propsRes.json();
+              properties = serverProps.map((sp, idx) => {
+                const fallback = DEFAULT_PROPERTIES.find(dp => dp.id === sp.id) || DEFAULT_PROPERTIES[idx % DEFAULT_PROPERTIES.length];
+                return {
+                  ...sp,
+                  coords: sp.coords || (fallback ? fallback.coords : [28.6415, 77.3714]),
+                  localityScore: sp.localityScore || (fallback ? fallback.localityScore : {
+                    water: '24h Supply', power: 'Zero Power Cut', nightSafety: '9.2 / 10 Gated', metroWalk: '5 min walk', deliverySpeed: '8 mins'
+                  })
+                };
+              });
+            }
             if (tenRes.ok) tenants = await tenRes.json();
             if (leadsRes.ok) leads = await leadsRes.json();
             if (maintRes.ok) complaints = await maintRes.json();
+            if (rentRes.ok) rentCollections = await rentRes.json();
+            if (commRes.ok) commissions = await commRes.json();
 
             // Re-render with live server data
             renderPublicPropertyList();
             updateDashboardBentoStats();
             renderAdminPropertyTable();
             renderAdminTenantTable();
+            renderAdminRentCollectionTable();
+            renderAdminCommissionTable();
             renderAdminLeadsTable();
             renderAdminMaintenanceTable();
+            if (typeof populatePoliceDropdowns === 'function') populatePoliceDropdowns();
           }
         } catch (err) {
           console.log('Running in local client mode');
@@ -4300,6 +4473,12 @@
     }
 
     // ================= MODAL 1: BOOK VISIT SYSTEM =================
+    function openBookVisitModalById(propId) {
+      const prop = properties.find(p => p.id === propId);
+      if (prop) currentSelectedProperty = prop;
+      openBookVisitModalFromDrawer();
+    }
+
     function openBookVisitModalFromDrawer() {
       if (!currentSelectedProperty) return;
       document.getElementById('visitModalSubtitle').innerText = `${currentSelectedProperty.title} • Rent: ₹${currentSelectedProperty.rent}`;
@@ -4351,6 +4530,14 @@
       saveState();
       renderAdminLeadsTable();
 
+      if (isBackendConnected) {
+        fetch('/api/visits', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, phone, property: newLead.property, date, time: selectedTimeSlot })
+        }).catch(() => {});
+      }
+
       // Confetti burst
       if (typeof confetti === 'function') {
         confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
@@ -4370,6 +4557,12 @@
     }
 
     // ================= MODAL 2: TOKEN PAYMENT ₹2,000 =================
+    function openTokenPaymentModalById(propId) {
+      const prop = properties.find(p => p.id === propId);
+      if (prop) currentSelectedProperty = prop;
+      openTokenPaymentModalFromDrawer();
+    }
+
     function openTokenPaymentModalFromDrawer() {
       if (!currentSelectedProperty) return;
       document.getElementById('tokenModalSubtitle').innerText = `${currentSelectedProperty.title} • Rent: ₹${currentSelectedProperty.rent}`;
@@ -4402,6 +4595,14 @@
         saveState();
         renderPublicPropertyList();
         renderAdminPropertyTable();
+
+        if (isBackendConnected) {
+          fetch('/api/token', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ propertyId: prop.id, propertyTitle: prop.title })
+          }).catch(() => {});
+        }
 
         // Confetti burst!
         if (typeof confetti === 'function') {
@@ -4634,6 +4835,13 @@
         saveState();
         renderPublicPropertyList();
         renderAdminPropertyTable();
+        if (isBackendConnected) {
+          fetch('/api/properties/' + id, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ status: newStatus, vacantDays: prop.vacantDays })
+          }).catch(() => {});
+        }
         showToast(`Property marked as ${newStatus}!`, "success");
       }
     }
@@ -4644,6 +4852,9 @@
         saveState();
         renderPublicPropertyList();
         renderAdminPropertyTable();
+        if (isBackendConnected) {
+          fetch('/api/properties/' + id, { method: 'DELETE' }).catch(() => {});
+        }
         showToast("Property deleted.", "info");
       }
     }
@@ -4694,6 +4905,13 @@
       renderPublicPropertyList();
       renderAdminPropertyTable();
       populateAgreementDropdowns();
+      if (isBackendConnected) {
+        fetch('/api/properties', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newP)
+        }).catch(() => {});
+      }
       closeAddPropertyModal();
       showToast("Nayi property add ho gayi!", "success");
     }
@@ -4882,6 +5100,9 @@
         item.status = "Paid";
         saveState();
         renderAdminRentCollectionTable();
+        if (isBackendConnected) {
+          fetch('/api/rent/' + id + '/pay', { method: 'POST' }).catch(() => {});
+        }
         showToast(`Rent marked as PAID for ${item.tenant}!`, "success");
       }
     }
@@ -4921,6 +5142,9 @@
         c.status = "Received";
         saveState();
         renderAdminCommissionTable();
+        if (isBackendConnected) {
+          fetch('/api/commissions/' + id + '/receive', { method: 'POST' }).catch(() => {});
+        }
         showToast("Commission marked as RECEIVED!", "success");
       }
     }
@@ -5306,10 +5530,10 @@
 
               <!-- Direct CTA Buttons -->
               <div class="pt-2 flex flex-col gap-2">
-                <button onclick="closeCompareModal(); openBookVisitModal('${p.id}');" class="w-full py-2 rounded-full bg-olive-700 hover:bg-olive-800 text-white font-bold text-xs transition-colors shadow-sm">
+                <button onclick="closeCompareModal(); openBookVisitModalById('${p.id}');" class="w-full py-2 rounded-full bg-olive-700 hover:bg-olive-800 text-white font-bold text-xs transition-colors shadow-sm">
                   Book Site Visit
                 </button>
-                <button onclick="closeCompareModal(); openTokenPaymentModal('${p.id}');" class="w-full py-2 rounded-full bg-charcoal-900 hover:bg-terracotta-700 text-amber-300 font-bold text-xs transition-colors">
+                <button onclick="closeCompareModal(); openTokenPaymentModalById('${p.id}');" class="w-full py-2 rounded-full bg-charcoal-900 hover:bg-terracotta-700 text-amber-300 font-bold text-xs transition-colors">
                   Lock Rs. 2,000 Token
                 </button>
               </div>
@@ -5643,7 +5867,7 @@
     }
 
     function clearHeroKeyword() {
-      const input = document.getElementById('heroSearchInput');
+      const input = document.getElementById('heroKeywordInput');
       if (input) {
         input.value = '';
         if (typeof applyHeroSearch === 'function') {
@@ -5684,7 +5908,7 @@
 
     function openWishlistModal() {
       const modal = document.getElementById('wishlistModal');
-      const listEl = document.getElementById('wishlistModalList');
+      const listEl = document.getElementById('wishlistModalBody');
       if (!modal || !listEl) return;
       const wishProps = properties.filter(p => userWishlist.includes(p.id));
       if (wishProps.length === 0) {
